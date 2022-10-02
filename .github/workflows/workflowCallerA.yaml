@@ -14,11 +14,26 @@ on:
         options:
           - aa
           - bb
+      GitBranch:
+        type: string
+        required: true
+ 
+          
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  jobSel:
+   runs-on: ubuntu-latest
+   steps:
+    - name: checkout Branch
+      uses: actions/checkout@v2.4.2
+      with:
+       ref:  ${{github.event.input.GitBranch}}
+  
   callSharedJob:
-    uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@main
-    with:
-      ModuleName: ${{github.event.input.ModuleName}}
-    
+     needs: jobSel
+     uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@main
+     with:
+       ModuleName: ${{github.event.input.ModuleName}}
+       
+
  
