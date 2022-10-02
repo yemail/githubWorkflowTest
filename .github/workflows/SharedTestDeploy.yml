@@ -35,8 +35,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  Dev-Deploymen
-          git status
-    
+          env
+ 
           
   prod-Deployment:
     runs-on: ubuntu-latest
