@@ -2,18 +2,12 @@
 
 name: CI
 
-# Controls when the workflow will run
 on:
- 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_call:
     inputs:
       ModuleName:
-        type: choice
         required: true
-        options:
-          - aa
-          - bb
+        type: string
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -44,7 +38,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  Dev-Deploymen
- 
+          git status
+    
           
   prod-Deployment:
     runs-on: ubuntu-latest
@@ -54,4 +49,5 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  prod-Deploymen
+          git status
  
