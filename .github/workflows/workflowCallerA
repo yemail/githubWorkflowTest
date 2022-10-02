@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+ 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      ModuleName:
+        type: choice
+        required: true
+        options:
+          - aa
+          - bb
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  callSharedJob:
+    uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@main
+    with:
+      ModuleName: ${{github.event.input.ModuleName}}
+    
+ 
