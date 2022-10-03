@@ -17,7 +17,11 @@ on:
        type: string
        description: 'Git Branch'
        required: true
- 
+       
+     ProdRelease:
+       required: true
+       type: boolean       
+
           
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,5 +47,6 @@ jobs:
      with:
        ModuleName: "${{github.event.inputs.ModuleName}}"
        GitBranch : "${{github.event.inputs.GitBranch}}"
+       ProdRelease : "${{github.event.inputs.ProdRelease}}"
 
  
