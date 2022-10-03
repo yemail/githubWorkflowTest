@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: prod
-    if: ${{github.event.inputs.ProdRelease}}
+    if: ${{github.event.inputs.ProdRelease == 'true' }}
     steps:
       - name: Run a one-line script
         run: |
