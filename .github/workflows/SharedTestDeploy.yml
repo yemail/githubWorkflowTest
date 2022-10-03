@@ -39,8 +39,9 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  Dev-Deployment
-          echo ${{github.event.input.ModuleName}}
-          echo ${{github.event.input.GitBranch}}
+          echo "${{github.event.input.ModuleName}}"
+          echo "${{github.event.input.GitBranch}}"
+ 
           env
  
           
@@ -52,6 +53,6 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  prod-Deploymen
-          echo ${{github.event.input.ModuleName}}
-          echo ${{github.event.input.GitBranch}}
+          echo "${{github.event.input.ModuleName}}"
+          echo "${{github.event.input.GitBranch}}"
  
