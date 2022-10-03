@@ -39,6 +39,9 @@ jobs:
           echo "three='new'" >> $GITHUB_ENV 
           echo "four=$a" >> $GITHUB_ENV 
           env
+    outputs:
+      four : $a
+        
           
   Dev-Deployment:
     runs-on: ubuntu-latest
@@ -50,6 +53,7 @@ jobs:
           echo  Dev-Deployment
           echo "${{github.event.inputs.ModuleName}}"
           echo "${{github.event.inputs.GitBranch}}"
+          echo "four ${{ needs.build.outputs.four }}"
  
           env
  
