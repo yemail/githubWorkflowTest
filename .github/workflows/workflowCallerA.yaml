@@ -26,6 +26,18 @@ jobs:
       uses: actions/checkout@v2.4.2
       with:
        ref:  ${{github.event.input.GitBranch}}
+    - name: setup input
+      shell: bash
+      run: |
+       echo "ModuleName=$ModuleName" >> $GITHUB_ENV
+       echo "GitBranch=$GitBranch" >> $GITHUB_ENV
+    - name: list env
+      shell: bash
+      run: |
+       env
+ 
+       
+  
   
   callSharedJob:
      needs: jobSel
