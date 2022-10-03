@@ -54,7 +54,7 @@ jobs:
           echo  Dev-Deployment
           echo "${{github.event.inputs.ModuleName}}"
           echo "${{github.event.inputs.GitBranch}}"
-          echo "four ${{ needs.build.outputs.test1 }}"
+          echo "four ${{ needs.build.outputs.four }}"
  
           env
  
