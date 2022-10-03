@@ -6,14 +6,16 @@ name: CallerA
 on:
  workflow_dispatch:
    inputs:
-     ModuleName:
-       type: choice
-       required: true
-       options:
-         - aa
-         - bb
+     ModuleName: 
+      type: choice
+      required: true
+      description: 'Module Name'
+      options:
+        - aa
+        - bb
      GitBranch:
        type: string
+       description: 'Git Branch'
        required: true
  
           
@@ -25,12 +27,17 @@ jobs:
     - name: checkout Branch
       uses: actions/checkout@v2.4.2
       with:
-       ref:  ${{github.event.input.GitBranch}}
+       ref:  ${{github.event.inputs.GitBranch}}
     - name: setup input
       shell: bash
       run: |
-       echo "ModuleName=$ModuleName" >> $GITHUB_ENV
-       echo "GitBranch=$GitBranch" >> $GITHUB_ENV
+       echo "ModuleName=${{ModuleName}}" >> $GITHUB_ENV
+       echo "GitBranch=${{GitBranch}}" >> $GITHUB_ENV
+       echo "${{GitBranch}}"
+       echo  "${{ModuleName}"
+       echo "no quotation"
+       echo ${{GitBranch}}
+       echo ${{ModuleName}}
     - name: list env
       shell: bash
       run: |
@@ -43,7 +50,7 @@ jobs:
      needs: jobSel
      uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@main
      with:
-       ModuleName: "${{github.event.input.ModuleName}}"
-       GitBranch : "${{github.event.input.GitBranch}}"
+       ModuleName: "${{github.event.inputs.ModuleName}}"
+       GitBranch : "${{github.event.inputs.GitBranch}}"
 
  
