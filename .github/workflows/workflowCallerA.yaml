@@ -28,16 +28,7 @@ jobs:
       uses: actions/checkout@v2.4.2
       with:
        ref:  ${{github.event.inputs.GitBranch}}
-    - name: setup input
-      shell: bash
-      run: |
-       echo "ModuleName=${{ModuleName}}" >> $GITHUB_ENV
-       echo "GitBranch=${{GitBranch}}" >> $GITHUB_ENV
-       echo "${{GitBranch}}"
-       echo  "${{ModuleName}"
-       echo "no quotation"
-       echo ${{GitBranch}}
-       echo ${{ModuleName}}
+
     - name: list env
       shell: bash
       run: |
