@@ -11,6 +11,9 @@ on:
       GitBranch:
         required: true
         type: string
+      ProdRelease:
+        required: true
+        type: boolean
         
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,8 +42,8 @@ jobs:
       - name: Run a one-line script
         run: |
           echo  Dev-Deployment
-          echo "${{github.event.input.ModuleName}}"
-          echo "${{github.event.input.GitBranch}}"
+          echo "${{github.event.inputs.ModuleName}}"
+          echo "${{github.event.inputs.GitBranch}}"
  
           env
  
@@ -49,10 +52,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: prod
+    if: ${{github.event.inputs.ProdRelease}}
     steps:
       - name: Run a one-line script
         run: |
           echo  prod-Deploymen
-          echo "${{github.event.input.ModuleName}}"
-          echo "${{github.event.input.GitBranch}}"
+          echo "${{github.event.inputs.ModuleName}}"
+          echo "${{github.event.inputs.GitBranch}}"
  
