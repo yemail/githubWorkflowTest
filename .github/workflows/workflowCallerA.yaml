@@ -47,6 +47,6 @@ jobs:
      with:
        ModuleName: "${{github.event.inputs.ModuleName}}"
        GitBranch : "${{github.event.inputs.GitBranch}}"
-       ProdRelease : "${{github.event.inputs.ProdRelease}}"
+       ProdRelease : ${{github.event.inputs.ProdRelease}}
 
  
