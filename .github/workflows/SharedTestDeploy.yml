@@ -40,13 +40,14 @@ jobs:
           echo Add other actions to build,
           a="sss"
           echo "three='new'" >> $GITHUB_ENV 
+          echo "three='new'" >> $GITHUB_STEP_SUMMARY 
           echo "four=$a" >> $GITHUB_ENV 
           echo "::set-output name=test1::hello" 
-          echo "TestA=$TestA" >> $GITHUB_ENV 
+          echo "TestA=${{ inputs.TestA }}" >> $GITHUB_ENV 
           env
     outputs:
       four : ${{ steps.PopulateValue.outputs.test1 }}
-      TestA : ${{ steps.PopulateValue.outputs.TestA }}
+      TestA : ${TestA}
         
           
   Dev-Deployment:
