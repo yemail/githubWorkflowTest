@@ -43,7 +43,7 @@ jobs:
   
   callSharedJob:
      needs: jobSel
-     uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@master
+     uses: yemail/githubWorkflowTest/.github/workflows/SharedTestDeploy.yml@main
      with:
        ModuleName: "${{github.event.inputs.ModuleName}}"
        GitBranch : "${{github.event.inputs.GitBranch}}"
