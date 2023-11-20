@@ -3,6 +3,11 @@
 name: SharedCall
 
 on:
+  workflow_dispatch:
+   inputs:
+      mytest:
+        required: true
+        type: string
   workflow_call:
     inputs:
       ModuleName:
@@ -17,6 +22,8 @@ on:
       TestA:
         required: true
         type: string
+
+        
 env:
   one: 1
   two: kknd
