@@ -8,20 +8,20 @@ on:
       mytest:
         required: true
         type: string
-  workflow_call:
-    inputs:
-      ModuleName:
-        required: true
-        type: string
-      GitBranch:
-        required: true
-        type: string
-      ProdRelease:
-        required: true
-        type: boolean
-      TestA:
-        required: true
-        type: string
+  # workflow_call:
+  #   inputs:
+  #     ModuleName:
+  #       required: true
+  #       type: string
+  #     GitBranch:
+  #       required: true
+  #       type: string
+  #     ProdRelease:
+  #       required: true
+  #       type: boolean
+  #     TestA:
+  #       required: true
+  #       type: string
 
         
 env:
